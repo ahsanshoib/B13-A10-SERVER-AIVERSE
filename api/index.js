@@ -14,7 +14,7 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
+
 app.use(
   cors({
     origin: process.env.CLIENT_URL || "http://localhost:3000",
@@ -23,10 +23,10 @@ app.use(
 );
 app.use(express.json());
 
-// Connect DB
+
 connectDB();
 
-// Routes
+
 app.use("/api/prompts", promptRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/bookmarks", bookmarkRoutes);
@@ -35,7 +35,7 @@ app.use("/api/reports", reportRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/admin", adminRoutes);
 
-// Health check
+
 app.get("/", (req, res) => {
   res.json({
     success: true,
@@ -44,14 +44,13 @@ app.get("/", (req, res) => {
   });
 });
 
-// 404 handler
 app.use((req, res) => {
   res.status(404).json({ success: false, error: "Route not found" });
 });
 
 const PORT = process.env.PORT || 5000;
 
-// Only listen in development
+
 if (process.env.NODE_ENV !== "production") {
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
