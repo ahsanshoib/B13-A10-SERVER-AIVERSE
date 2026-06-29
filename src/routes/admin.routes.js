@@ -8,7 +8,7 @@ import roleCheck from "../middleware/roleCheck.js";
 
 const router = express.Router();
 
-// GET all users
+
 router.get(
   "/users",
   authMiddleware,
@@ -31,7 +31,7 @@ router.get(
   }
 );
 
-// PUT update user role
+
 router.put(
   "/users/:id",
   authMiddleware,
@@ -56,7 +56,7 @@ router.put(
   }
 );
 
-// DELETE user
+
 router.delete(
   "/users/:id",
   authMiddleware,
@@ -77,7 +77,7 @@ router.delete(
   }
 );
 
-// GET all prompts (admin)
+
 router.get(
   "/prompts",
   authMiddleware,
@@ -92,7 +92,7 @@ router.get(
   }
 );
 
-// PUT update prompt (approve/reject/feature)
+
 router.put(
   "/prompts/:id",
   authMiddleware,
@@ -119,7 +119,7 @@ router.put(
   }
 );
 
-// DELETE prompt (admin)
+
 router.delete(
   "/prompts/:id",
   authMiddleware,
@@ -134,7 +134,7 @@ router.delete(
   }
 );
 
-// GET analytics — MongoDB Aggregation
+
 router.get(
   "/analytics",
   authMiddleware,
@@ -155,7 +155,7 @@ router.get(
         0
       );
 
-      // MongoDB Aggregation
+      
       const copyAggregation = await Prompt.aggregate([
         { $group: { _id: null, totalCopies: { $sum: "$copyCount" } } },
       ]);
@@ -189,7 +189,7 @@ router.get(
   }
 );
 
-// GET creator analytics — MongoDB Aggregation
+
 router.get(
   "/creator-analytics",
   authMiddleware,
@@ -206,7 +206,7 @@ router.get(
         0
       );
 
-      // MongoDB Aggregation for growth
+      
       const growthData = await Prompt.aggregate([
         { $match: { creatorId: req.user.id } },
         {
