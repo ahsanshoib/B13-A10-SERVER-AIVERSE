@@ -5,7 +5,6 @@ import roleCheck from "../middleware/roleCheck.js";
 
 const router = express.Router();
 
-// GET all prompts with search/filter/sort/pagination
 router.get("/", async (req, res) => {
   try {
     const {
@@ -58,7 +57,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// GET single prompt
+
 router.get("/:id", async (req, res) => {
   try {
     const prompt = await Prompt.findById(req.params.id);
@@ -71,7 +70,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// POST create prompt
+
 router.post("/", authMiddleware, async (req, res) => {
   try {
     const userRole = req.user.role;
@@ -102,7 +101,6 @@ router.post("/", authMiddleware, async (req, res) => {
   }
 });
 
-// PUT update prompt
 router.put("/:id", authMiddleware, async (req, res) => {
   try {
     const prompt = await Prompt.findById(req.params.id);
@@ -126,7 +124,6 @@ router.put("/:id", authMiddleware, async (req, res) => {
   }
 });
 
-// DELETE prompt
 router.delete("/:id", authMiddleware, async (req, res) => {
   try {
     const prompt = await Prompt.findById(req.params.id);
@@ -146,7 +143,7 @@ router.delete("/:id", authMiddleware, async (req, res) => {
   }
 });
 
-// POST copy count
+
 router.post("/:id/copy", authMiddleware, async (req, res) => {
   try {
     const prompt = await Prompt.findByIdAndUpdate(
