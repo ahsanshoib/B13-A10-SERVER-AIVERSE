@@ -39,7 +39,7 @@ app.use("/api/admin", adminRoutes);
 app.get("/", (req, res) => {
   res.json({
     success: true,
-    message: "AIVERSE API Server is running!",
+    message: "AIVERSE API Server is running successfully!",
     version: "1.0.0",
   });
 });
