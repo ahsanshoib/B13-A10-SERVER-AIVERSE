@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const promptSchema = new mongoose.Schema(
+
   {
     title: { type: String, required: true },
     description: { type: String, required: true },
@@ -13,16 +14,19 @@ const promptSchema = new mongoose.Schema(
       enum: ["Beginner", "Intermediate", "Pro"],
       required: true,
     },
+
     thumbnail: { type: String, default: "" },
     visibility: {
       type: String,
       enum: ["public", "private"],
       default: "public",
     },
+    
     status: {
       type: String,
       enum: ["pending", "approved", "rejected"],
       default: "pending",
+
     },
     isFeatured: { type: Boolean, default: false },
     copyCount: { type: Number, default: 0 },
@@ -34,6 +38,7 @@ const promptSchema = new mongoose.Schema(
     averageRating: { type: Number, default: 0 },
     totalReviews: { type: Number, default: 0 },
   },
+
   { timestamps: true }
 );
 
