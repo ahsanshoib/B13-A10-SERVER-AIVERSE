@@ -50,7 +50,7 @@ router.put(
         await Report.findByIdAndUpdate(req.params.id, {
           status: "removed",
         });
-        return res.json({ success: true, message: "Prompt removed" });
+        return res.json({ success: true, message: "Prompt Removed" });
       }
       const report = await Report.findByIdAndUpdate(
         req.params.id,
