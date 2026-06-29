@@ -31,7 +31,6 @@ router.get(
   }
 );
 
-
 router.put(
   "/users/:id",
   authMiddleware,
@@ -56,7 +55,6 @@ router.put(
   }
 );
 
-
 router.delete(
   "/users/:id",
   authMiddleware,
@@ -77,7 +75,6 @@ router.delete(
   }
 );
 
-
 router.get(
   "/prompts",
   authMiddleware,
@@ -91,7 +88,6 @@ router.get(
     }
   }
 );
-
 
 router.put(
   "/prompts/:id",
@@ -119,7 +115,6 @@ router.put(
   }
 );
 
-
 router.delete(
   "/prompts/:id",
   authMiddleware,
@@ -133,7 +128,6 @@ router.delete(
     }
   }
 );
-
 
 router.get(
   "/analytics",
