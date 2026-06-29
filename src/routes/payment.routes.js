@@ -24,7 +24,7 @@ router.post("/", authMiddleware, async (req, res) => {
     const { paymentMethodId } = req.body;
 
     if (!process.env.STRIPE_SECRET_KEY) {
-      return res.status(500).json({ success: false, error: "Stripe key not configured" });
+      return res.status(500).json({ success: false, error: "STRIPE KEY IS NOT COFIGURED" });
     }
 
     const { default: Stripe } = await import("stripe");
