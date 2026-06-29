@@ -49,7 +49,7 @@ router.put(
           { $set: { role } }
         );
       await client.close();
-      res.json({ success: true, message: "Role updated" });
+      res.json({ success: true, message: "Role Updated" });
     } catch (error) {
       res.status(500).json({ success: false, error: error.message });
     }
@@ -70,7 +70,7 @@ router.delete(
         .collection("user")
         .deleteOne({ _id: new ObjectId(req.params.id) });
       await client.close();
-      res.json({ success: true, message: "User deleted" });
+      res.json({ success: true, message: "User Deleted" });
     } catch (error) {
       res.status(500).json({ success: false, error: error.message });
     }
